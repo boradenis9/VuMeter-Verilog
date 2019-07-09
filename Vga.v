@@ -1,0 +1,12 @@
+module Vga(clk,rst_,hs,vs,R,G,B);
+input clk, rst_;
+output [2:0]R,G;
+output [1:0]B;
+output hs, vs;
+wire Uclk;
+
+VgaStart a(.clk(Uclk),.rst_(rst_),.hs(hs),.vs(vs),.R(R),.G(G),.B(B));
+ClockGen #(.a(100000000),.b(25000000),.Olength(2)) DUT(.clk(clk),.rst_(rst_),.Uclk(Uclk));
+
+
+endmodule
